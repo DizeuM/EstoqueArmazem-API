@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const dbConnection = require("./db.js");
+const productRoutes=require('./controllers/product.controller')
 
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use('/product',productRoutes)
 
 dbConnection()
   .then(() => {
